@@ -1,102 +1,110 @@
+"use client";
+
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-tr from-[#0f172a] via-[#1e293b] to-[#334155] px-4 sm:px-6">
+      {/* Header */}
+      <header className="absolute top-0 left-0 w-full p-6 text-white text-lg font-bold tracking-wide">
+        Leo Bikes
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Login Card */}
+      <div className="w-full max-w-md bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-8 shadow-xl text-white mt-20">
+        <div className="flex justify-center mb-6">
+          <Image
+            src="/next.svg"
+            alt="Logo"
+            width={80}
+            height={80}
+            className="dark:invert"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        <h2 className="text-2xl font-semibold text-center mb-6">
+          Let’s Ride Buddy
+        </h2>
+
+        <form
+          className="space-y-4"
+          onSubmit={async (e) => {
+          e.preventDefault();
+          const email = e.target.email.value;
+          const name = email.split("@")[0]; // or ask for a name input if needed
+
+          try {
+            const res = await fetch("http://localhost:5000/user/createUser", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization:
+                  "Bearer 3a60e7428f3c7c56446a3025ba601624f849e80475dd452dfd36e2bb25032ca62526e5deeca708c100cb0158088cf90036fd671e8deca4bd325d486a8fbbddf6c65ca52e8db584e8df46d46478fa92085a0f36097f4d313e6256a2154de8f71bb73cef3fce1a25c6b767b9c4fe900d449ab0da6895f91f19ff89f878b5ea434f7bbc49a6d162fd9ef1e3f6c2ec511997ecc85d2e0f82a5a951ed4cc0743b18c91fd86b018e6c13f20f68a20fe27ae7f6f86b749b5e4c0ae5aebd35cca60e49d4",
+              },
+              body: JSON.stringify({ name, email }),
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+              alert("✅ " + data.message || "User created successfully!");
+            } else {
+              alert("❌ " + data.message || "Something went wrong!");
+            }
+          } catch (error) {
+            console.error("API call error:", error);
+            alert("Something went wrong. Try again later.");
+          }
+        }}
+
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+          <div>
+            <label htmlFor="email" className="block text-sm text-white/80 mb-1">
+              Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              className="w-full px-4 py-2 rounded-md bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-white/60 text-white"
+              placeholder="you@example.com"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="password" className="block text-sm text-white/80 mb-1">
+              Password
+            </label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              required
+              className="w-full px-4 py-2 rounded-md bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-white/60 text-white"
+              placeholder="••••••••"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full py-2 bg-blue-600 hover:bg-blue-700 rounded-md transition font-medium"
+          >
+            Login
+          </button>
+        </form>
+
+        <p className="text-sm text-center text-white/70 mt-6">
+          Don’t have an account?{" "}
+          <a href="#" className="text-blue-400 hover:underline">
+            Sign up
+          </a>
+        </p>
+      </div>
+
+      {/* Footer */}
+      <footer className="text-white/60 text-xs text-center mt-10">
+        &copy; {new Date().getFullYear()} Leo Bikes. All rights reserved.
       </footer>
     </div>
   );
