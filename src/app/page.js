@@ -38,8 +38,7 @@ export default function Home() {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
-                Authorization:
-                  "Bearer 3a60e7428f3c7c56446a3025ba601624f849e80475dd452dfd36e2bb25032ca62526e5deeca708c100cb0158088cf90036fd671e8deca4bd325d486a8fbbddf6c65ca52e8db584e8df46d46478fa92085a0f36097f4d313e6256a2154de8f71bb73cef3fce1a25c6b767b9c4fe900d449ab0da6895f91f19ff89f878b5ea434f7bbc49a6d162fd9ef1e3f6c2ec511997ecc85d2e0f82a5a951ed4cc0743b18c91fd86b018e6c13f20f68a20fe27ae7f6f86b749b5e4c0ae5aebd35cca60e49d4",
+                Authorization: "Bearer YOUR_ACCESS_TOKEN"
               },
               body: JSON.stringify({ name, email }),
             });
