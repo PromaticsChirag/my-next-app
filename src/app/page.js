@@ -1,8 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-tr from-[#0f172a] via-[#1e293b] to-[#334155] px-4 sm:px-6">
       {/* Header */}
@@ -29,36 +32,43 @@ export default function Home() {
         <form
           className="space-y-4"
           onSubmit={async (e) => {
-          e.preventDefault();
-          const email = e.target.email.value;
-          const name = email.split("@")[0]; // or ask for a name input if needed
+            e.preventDefault();
+            const email = e.target.email.value;
+            console.log("Email:", email);
+            const password = e.target.password.value;
+            console.log("Password:", password);
 
-          try {
-            const res = await fetch("http://localhost:5000/user/createUser", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: "Bearer YOUR_ACCESS_TOKEN"
-              },
-              body: JSON.stringify({ name, email }),
-            });
+            try {
+              const query = new URLSearchParams({ email, password }).toString();
+              const res = await fetch(
+                `http://localhost:5000/user/getUsers?${query}`,
+                {
+                  method: "GET",
+                  headers: {
+                    Authorization: `Bearer ${process.env.NEXT_PUBLIC_YOUR_ACCESS_TOKEN}`,
+                  },
+                }
+              );
 
-            const data = await res.json();
+              const data = await res.json();
 
-            if (res.ok) {
-              alert("✅ " + data.message || "User created successfully!");
-            } else {
-              alert("❌ " + data.message || "Something went wrong!");
+              if (data.code === 200) {
+                router.push("/homepage");
+                // alert("✅ " + (data.message || "Logged in successfully!"));
+              } else {
+                alert("❌ " + (data.message || "Something went wrong!"));
+              }
+            } catch (error) {
+              console.error("API call error:", error);
+              alert("Something went wrong. Try again later.");
             }
-          } catch (error) {
-            console.error("API call error:", error);
-            alert("Something went wrong. Try again later.");
-          }
-        }}
-
+          }}
         >
           <div>
-            <label htmlFor="email" className="block text-sm text-white/80 mb-1">
+            <label
+              htmlFor="email"
+              className="block text-sm text-white/80 mb-1"
+            >
               Email
             </label>
             <input
@@ -72,7 +82,10 @@ export default function Home() {
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm text-white/80 mb-1">
+            <label
+              htmlFor="password"
+              className="block text-sm text-white/80 mb-1"
+            >
               Password
             </label>
             <input
@@ -95,9 +108,9 @@ export default function Home() {
 
         <p className="text-sm text-center text-white/70 mt-6">
           Don’t have an account?{" "}
-          <a href="#" className="text-blue-400 hover:underline">
+          <Link href="/signup" className="text-blue-400 hover:underline">
             Sign up
-          </a>
+          </Link>
         </p>
       </div>
 
