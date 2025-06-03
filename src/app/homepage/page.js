@@ -9,17 +9,17 @@ export default function HomePage() {
   const bikes = [
     {
       name: "Speedster 5000",
-      image: "/images/bike1.jpg",
+      image: "./continental.svg",
       description: "A super-fast road bike designed for high performance."
     },
     {
       name: "TrailBlazer",
-      image: "/images/bike2.jpg",
+      image: "./next.svg",
       description: "A rugged mountain bike built for the toughest trails."
     },
     {
       name: "Urban Comet",
-      image: "/images/bike3.jpg",
+      image: "./next.svg",
       description: "A sleek, electric bike perfect for city commuting."
     }
   ];
