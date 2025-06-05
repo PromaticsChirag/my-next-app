@@ -154,7 +154,7 @@ export default function Home() {
                 try {
                   const query = new URLSearchParams({ email, password }).toString();
                   const res = await fetch(
-                    `http://localhost:5000/user/getUsers?${query}`,
+                    `${process.env.NEXT_PUBLIC_LOCALHOST_URL}user/getUsers?${query}`,
                     {
                       method: "GET",
                       headers: {
