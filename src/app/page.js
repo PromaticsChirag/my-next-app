@@ -11,62 +11,89 @@ export default function Home() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
-      {/* Animated Background Elements */}
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+      {/* Enhanced Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse delay-500"></div>
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-r from-orange-500 to-red-600 rounded-full mix-blend-screen filter blur-3xl opacity-20"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-r from-red-500 to-orange-600 rounded-full mix-blend-screen filter blur-3xl opacity-20"></div>
+        <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-gradient-to-r from-orange-400 to-red-500 rounded-full mix-blend-screen filter blur-2xl opacity-15"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-48 h-48 bg-gradient-to-r from-red-400 to-orange-500 rounded-full mix-blend-screen filter blur-2xl opacity-15"></div>
       </div>
 
+      {/* Subtle Grid Background */}
+      <div 
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,69,0,0.3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,69,0,0.3) 1px, transparent 1px)
+          `,
+          backgroundSize: '50px 50px'
+        }}
+      />
+
       {/* Floating Bike Elements */}
-      <div className="absolute top-20 left-10 text-6xl opacity-10 animate-float">🏍️</div>
-      <div className="absolute bottom-20 right-10 text-4xl opacity-10 animate-float delay-1000">🚴</div>
-      <div className="absolute top-1/3 right-20 text-5xl opacity-10 animate-float delay-500">🚲</div>
+      <div className="absolute top-20 left-10 text-6xl opacity-20 text-orange-500">🏍️</div>
+      <div className="absolute bottom-20 right-10 text-4xl opacity-20 text-red-500">🚴</div>
+      <div className="absolute top-1/3 right-20 text-5xl opacity-20 text-orange-400">🚲</div>
 
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6">
         {/* Enhanced Header */}
-        <header className="absolute top-0 left-0 w-full p-6 flex items-center space-x-3">
-          <div className="w-10 h-10 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-xl flex items-center justify-center text-xl">
+        <header className="absolute top-0 left-0 w-full p-8 flex items-center space-x-4">
+          <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl flex items-center justify-center text-2xl transform rotate-12 hover:rotate-0 transition-transform duration-500">
             🏍️
           </div>
-          <span className="text-white text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            Leo Bikes
-          </span>
+          <div>
+            <span className="text-white text-3xl font-black bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+              Leo Bikes
+            </span>
+            <p className="text-orange-300/60 text-sm font-medium">Ride Beyond Limits</p>
+          </div>
         </header>
 
         {/* Welcome Section */}
-        <div className="text-center mb-8 animate-fade-in-up">
-          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Welcome Back
+        <div className="text-center mb-12">
+          <div className="inline-block mb-4">
+            <span className="bg-gradient-to-r from-orange-500 to-red-600 text-white px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider">
+              Welcome Back
+            </span>
+          </div>
+          <h1 className="text-5xl sm:text-6xl font-black mb-6 leading-tight">
+            <span className="bg-gradient-to-r from-orange-400 via-red-500 to-orange-600 bg-clip-text text-transparent">
+              Ready to Ride?
+            </span>
           </h1>
-          <p className="text-white/70 text-lg max-w-md mx-auto">
-            Ready for your next adventure? Sign in to explore premium bikes and start your journey.
+          <p className="text-gray-300 text-xl max-w-2xl mx-auto leading-relaxed">
+            Sign in to your account and unlock access to our premium fleet of high-performance bikes. 
+            Your next adventure awaits!
           </p>
         </div>
 
         {/* Enhanced Login Card */}
-        <div className="w-full max-w-md bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-8 shadow-2xl text-white animate-slide-up">
+        <div className="w-full max-w-lg bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-xl rounded-3xl border border-orange-500/30 p-10 shadow-2xl shadow-orange-500/20 text-white">
           {/* Logo Section */}
           <div className="flex justify-center mb-8">
             <div className="relative">
-              <div className="w-20 h-20 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-2xl flex items-center justify-center shadow-xl">
-                <span className="text-3xl">🏍️</span>
+              <div className="w-24 h-24 bg-gradient-to-r from-orange-500 to-red-600 rounded-3xl flex items-center justify-center shadow-2xl shadow-orange-500/50">
+                <span className="text-4xl">🏍️</span>
               </div>
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-2xl blur opacity-25"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-orange-500 to-red-600 rounded-3xl blur-xl opacity-30"></div>
             </div>
           </div>
 
-          <h2 className="text-2xl font-bold text-center mb-8 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-            Let's Ride Buddy
+          <h2 className="text-3xl font-black text-center mb-3 text-white">
+            Welcome Back, Rider!
           </h2>
+          <p className="text-center text-gray-400 mb-10 text-lg">
+            Sign in to continue your journey
+          </p>
 
-          <div className="space-y-6">
+          <div className="space-y-8">
             {/* Email Field */}
             <div className="relative group">
               <label
                 htmlFor="email"
-                className="block text-sm text-white/80 mb-2 font-medium"
+                className="block text-lg text-orange-300 mb-3 font-semibold"
               >
                 Email Address
               </label>
@@ -76,11 +103,11 @@ export default function Home() {
                   name="email"
                   type="email"
                   required
-                  className="w-full px-4 py-3 pl-12 rounded-xl bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:bg-white/20 placeholder-white/50 text-white transition-all duration-300 group-hover:border-white/30"
-                  placeholder="you@example.com"
+                  className="w-full px-6 py-4 pl-14 rounded-2xl bg-black/50 border-2 border-orange-500/30 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 focus:bg-black/70 placeholder-gray-500 text-white text-lg transition-all duration-300 hover:border-orange-400/50"
+                  placeholder="your@email.com"
                 />
-                <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/60">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="absolute left-5 top-1/2 transform -translate-y-1/2 text-orange-400">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                   </svg>
                 </div>
@@ -91,7 +118,7 @@ export default function Home() {
             <div className="relative group">
               <label
                 htmlFor="password"
-                className="block text-sm text-white/80 mb-2 font-medium"
+                className="block text-lg text-orange-300 mb-3 font-semibold"
               >
                 Password
               </label>
@@ -101,25 +128,25 @@ export default function Home() {
                   name="password"
                   type={showPassword ? "text" : "password"}
                   required
-                  className="w-full px-4 py-3 pl-12 pr-12 rounded-xl bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:bg-white/20 placeholder-white/50 text-white transition-all duration-300 group-hover:border-white/30"
-                  placeholder="••••••••"
+                  className="w-full px-6 py-4 pl-14 pr-14 rounded-2xl bg-black/50 border-2 border-orange-500/30 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 focus:bg-black/70 placeholder-gray-500 text-white text-lg transition-all duration-300 hover:border-orange-400/50"
+                  placeholder="••••••••••"
                 />
-                <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/60">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="absolute left-5 top-1/2 transform -translate-y-1/2 text-orange-400">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
                 </div>
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white/60 hover:text-white transition-colors"
+                  className="absolute right-5 top-1/2 transform -translate-y-1/2 text-orange-400 hover:text-orange-300 transition-colors duration-300"
                 >
                   {showPassword ? (
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21" />
                     </svg>
                   ) : (
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     </svg>
@@ -130,14 +157,14 @@ export default function Home() {
 
             {/* Remember Me & Forgot Password */}
             <div className="flex items-center justify-between">
-              <label className="flex items-center space-x-2 text-sm text-white/70">
+              <label className="flex items-center space-x-3 text-lg text-gray-300 cursor-pointer hover:text-white transition-colors duration-300">
                 <input
                   type="checkbox"
-                  className="w-4 h-4 rounded border-white/20 bg-white/10 text-cyan-400 focus:ring-cyan-400 focus:ring-2"
+                  className="w-5 h-5 rounded-lg border-2 border-orange-500/50 bg-black/50 text-orange-500 focus:ring-orange-500 focus:ring-2 transition-all duration-300"
                 />
                 <span>Remember me</span>
               </label>
-              <Link href="/forgot-password" className="text-sm text-cyan-400 hover:text-cyan-300 transition-colors">
+              <Link href="/forgot-password" className="text-lg text-orange-400 hover:text-orange-300 transition-colors duration-300 font-semibold">
                 Forgot password?
               </Link>
             </div>
@@ -178,11 +205,11 @@ export default function Home() {
                 }
               }}
               disabled={isLoading}
-              className="w-full py-3 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 disabled:from-gray-500 disabled:to-gray-600 rounded-xl transition-all duration-300 font-semibold transform hover:scale-105 hover:shadow-xl disabled:scale-100 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+              className="w-full py-5 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 disabled:from-gray-600 disabled:to-gray-700 rounded-2xl transition-all duration-300 font-bold text-xl transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/50 disabled:scale-100 disabled:cursor-not-allowed flex items-center justify-center space-x-3 text-white"
             >
               {isLoading ? (
                 <>
-                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 mr-3 -ml-1 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
@@ -190,8 +217,8 @@ export default function Home() {
                 </>
               ) : (
                 <>
-                  <span>Sign In</span>
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <span>Sign In & Ride</span>
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </>
@@ -200,99 +227,55 @@ export default function Home() {
           </div>
 
           {/* Divider */}
-          <div className="flex items-center my-6">
-            <div className="flex-1 border-t border-white/20"></div>
-            <span className="px-4 text-white/60 text-sm">or</span>
-            <div className="flex-1 border-t border-white/20"></div>
+          <div className="flex items-center my-8">
+            <div className="flex-1 border-t border-orange-500/30"></div>
+            <span className="px-6 text-gray-400 text-lg font-medium">or continue with</span>
+            <div className="flex-1 border-t border-orange-500/30"></div>
           </div>
 
           {/* Social Login */}
-          <div className="grid grid-cols-2 gap-4 mb-6">
-            <button className="flex items-center justify-center space-x-2 py-3 px-4 bg-white/10 border border-white/20 rounded-xl hover:bg-white/20 transition-all duration-300 group">
-              <svg className="w-5 h-5 text-white group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
+          <div className="grid grid-cols-2 gap-4 mb-8">
+            <button className="flex items-center justify-center space-x-3 py-4 px-4 bg-black/50 border-2 border-orange-500/30 rounded-2xl hover:bg-black/70 hover:border-orange-400/50 transition-all duration-300 group text-lg font-semibold">
+              <svg className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                 <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
                 <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
                 <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
               </svg>
-              <span className="text-sm text-white">Google</span>
+              <span className="text-white">Google</span>
             </button>
-            <button className="flex items-center justify-center space-x-2 py-3 px-4 bg-white/10 border border-white/20 rounded-xl hover:bg-white/20 transition-all duration-300 group">
-              <svg className="w-5 h-5 text-white group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+            <button className="flex items-center justify-center space-x-3 py-4 px-4 bg-black/50 border-2 border-orange-500/30 rounded-2xl hover:bg-black/70 hover:border-orange-400/50 transition-all duration-300 group text-lg font-semibold">
+              <svg className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
               </svg>
-              <span className="text-sm text-white">Facebook</span>
+              <span className="text-white">Facebook</span>
             </button>
           </div>
 
           {/* Sign Up Link */}
-          <p className="text-sm text-center text-white/70">
-            Don't have an account?{" "}
-            <Link href="/signup" className="text-cyan-400 hover:text-cyan-300 transition-colors font-semibold">
-              Create Account
+          <p className="text-lg text-center text-gray-300">
+            New to Leo Bikes?{" "}
+            <Link href="/signup" className="text-orange-400 hover:text-orange-300 transition-colors font-bold">
+              Create Your Account
             </Link>
           </p>
         </div>
 
         {/* Enhanced Footer */}
-        <footer className="text-center mt-8">
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl px-6 py-4">
-            <p className="text-white/60 text-sm mb-2">
-              &copy; {new Date().getFullYear()} Leo Bikes. All rights reserved.
+        <footer className="text-center mt-12">
+          <div className="bg-gradient-to-r from-black/80 to-gray-900/80 backdrop-blur-xl border border-orange-500/30 rounded-2xl px-8 py-6 shadow-2xl shadow-orange-500/20">
+            <p className="text-gray-400 text-lg mb-3">
+              &copy; {new Date().getFullYear()} Leo Bikes. Ride Beyond Limits. All rights reserved.
             </p>
-            <div className="flex justify-center space-x-4 text-xs">
-              <a href="#" className="text-white/50 hover:text-cyan-400 transition-colors">Privacy Policy</a>
-              <a href="#" className="text-white/50 hover:text-cyan-400 transition-colors">Terms of Service</a>
-              <a href="#" className="text-white/50 hover:text-cyan-400 transition-colors">Support</a>
+            <div className="flex justify-center space-x-8 text-base">
+              <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Privacy Policy</a>
+              <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Terms of Service</a>
+              <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Support</a>
+              <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">Contact</a>
             </div>
           </div>
         </footer>
       </div>
-
-      <style jsx>{`
-        @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes slide-up {
-          from {
-            opacity: 0;
-            transform: translateY(50px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-20px);
-          }
-        }
-
-        .animate-fade-in-up {
-          animation: fade-in-up 1s ease-out;
-        }
-
-        .animate-slide-up {
-          animation: slide-up 0.8s ease-out 0.2s both;
-        }
-
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-      `}</style>
     </div>
   );
 }
